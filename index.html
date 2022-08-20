@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!---------- LINK CSS ----------->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!----- LINK FONTAWESOME ------>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!----- LINK SLICK JS ------>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+  
+  <title> Calculadora IMC </title>
+
+</head>
+<body>
+
+<!---------- MENU ----------->
+
+<nav class="menu">
+  <h1>Mortal Kombat</h1>
+  <ul>
+    <a href="#home" onclick="menuModalFechar()">Home</a>
+    <hr>
+    <a href="#time" onclick="menuModalFechar()">Nosso time</a>
+    <hr>
+    <a href="#imc" onclick="menuModalFechar()">Seu IMC</a>
+    <hr>
+    <a href="#horarios" onclick="menuModalFechar()">Horários</a>
+    <hr>
+    <a href="#contatos" onclick="menuModalFechar()">Contate-nos</a>
+  </ul>
+</nav>
+
+<!---------- HOME - BANNER ----------->
+<section class="pannel" id="home">
+
+  <div class="medias-vertical">
+    <ul>
+      <a href="">Facebook</a>
+      <a class="border-twiter" href="">Twiter</a>
+      <a href="">Instagram</a>
+    </ul>
+  </div>
+  
+  <img src="assets/img/woman-academy.png" alt="">
+    
+  <div class="infors">
+    <h2>Venha já para a</h2>
+    <h1>Mortal <br> Kombat</h1>
+    <p>O corpo alcança o que a mente acredita!</p>
+  </div>
+
+</section>
+<!---------- NOSSO TIME ----------->
+<section class="pannel" id="time">
+
+<div class="titles">
+  <h1>Nosso Time</h1>
+</div>
+
+<ul class="team">
+  <li>
+    <figure>
+      <img style="width:90%;" src="assets/img/team/shang.png" alt="">
+    </figure>
+    <figcaption>
+      <h1>Shang Tsung</h1>
+      <h2>Gerente</h2>
+    </figcaption>
+  </li>
+  <li>
+    <figure>
+      <img  style="width:80%;" src="assets/img/team/scorpion.png" alt="">
+    </figure>
+    <figcaption>
+      <h1>Scorpion</h1>
+      <h2>Professor</h2>
+    </figcaption>
+  </li>
+  <li>
+    <figure>
+      <img style="width:100%;" src="assets/img/team/zero.png" alt="">
+    </figure>
+    <figcaption>
+      <h1>Sub-Zero</h1>
+      <h2>Personal Trainer</h2>
+    </figcaption>
+  </li>
+  <li>
+    <figure>
+      <img style="width:90%;" src="assets/img/team/Goro_MK.png" alt="">
+    </figure>
+    <figcaption>
+      <h1>Goro</h1>
+      <h2>Diretor</h2>
+    </figcaption>
+  </li>
+</ul>
+
+</section>
+<!---------- SEU IMC ----------->
+<section class="pannel" id="imc">
+
+  <div class="titles" style="margin-top: 55px;">
+    <h1>Calcule seu imc</h1>
+  </div>
+
+  <section class="box-imc">
+
+    <table class="panel-imc">
+
+      <thead>
+        <th>Tabela de IMC</th>
+      </thead>
+
+      <tr class="table-subtitles">
+          <th>IMC</th>
+          <th>CLASSIFICAÇÃO</th>
+          <th>GRAU</th>
+      </tr>
+      <tr>
+          <td>MENOR QUE <b>18,5</b></td>
+          <td>Magreza</td>
+          <td><b>0</b></td>
+      </tr>
+      <tr>
+          <td>ENTRE 18,5 E <b>24,9</b></td>
+          <td>Normal</td>
+          <td><b>0</b></td>
+      </tr>
+      <tr>
+        <td>ENTRE 25,0 E <b>29,9</b></td>
+        <td>Sobrepeso</td>
+        <td><b>I</b></td>
+      </tr>
+      <tr>
+        <td>ENTRE 30,0 E <b>39,9</b></td>
+        <td>Obesidade</td>
+        <td><b>II</b></td>
+      </tr>
+      <tr>
+        <td>MAIOR QUE <b>40,0</b></td>
+        <td>Obesidade Grave</td>
+        <td><b>III</b></td>
+      </tr>
+    </table>
+    
+    <form class="form-imc">
+
+      <section>
+        <input type="text" id="nome" placeholder="Nome">
+        <div>
+          <input step="any" type="number" id="peso" placeholder="Peso" step="any">
+          <input step="any" type="number" id="altura" placeholder="Altura">
+        </div>
+      </section>  
+
+      <div class="box-btn-calc-clear">
+        <button class="btn-calc" onclick="calcImc()">Calcular</button>
+        <button class="btn-clear" type="reset">Limpar</button>
+      </div>
+
+    </form>
+  
+  </section>
+
+  <!---------- MODAL IMC ----------->  
+
+  <section id="camp" class="modal-imc" onclick="fecharComCamp()">
+    <div id="panel-imc-result">    
+      <h1>Nenhum Valor selecionado</h1>
+    </div>
+  </section>
+  <button id="closeModal" onclick="menuModalFechar()">
+    <h1>X</h1>
+  </button>
+
+</section>
+<!---------- HORÁRIOS ----------->
+<section class="pannel" id="horarios">
+
+  <div class="titles" style="margin-top: 50px;">
+    <h1>Nossos Horários</h1>
+  </div>
+
+  <ul class="planos">
+
+    <ul>
+ 
+      <li>
+        <h2>Segunda</h2>
+        <h4>16H às 20H</h4>
+      </li>
+  
+      <li>
+        <h2>Terça a Sexta</h2>
+        <h4>07H às 10H</h4>
+        <h4>16H às 20H</h4>
+      </li>
+
+      <li>
+        <h2>Sábado</h2>
+        <h4>08H às 16H</h4>
+      </li>
+
+      <div>
+        <h2>Orientações</h2>
+        <h4>- Entrada por ordem de chegada;</h4>
+        <h4>- Capacidade máxima de 20 alunos por sessão;</h4>
+        <h4>- Treinos de até 50 Minutos;</h4>
+      </div>
+
+    </ul>
+
+    
+    <li class="valor">
+      <h5>Plano mensal</h5>
+      <p>Por apenas</p>
+      <hr>
+      <h1><b>R$</b> 109 <b>,99</b></h1>
+      <hr>
+      <h4>Assine agora mesmo!</h4>
+    </li>
+
+  </ul>
+
+</section>
+
+<!---------- CONTATOS ----------->
+<section class="pannel" id="contatos">
+
+  <div class="titles">
+    <h1>Contate-nos</h1>
+  </div>
+
+  <section class="box-contacts">
+
+    <form>
+      <div>
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="E-mail">
+        <input type="text" placeholder="Telefone">
+      </div>
+      <div>
+        <textarea placeholder="Mensagem"></textarea>
+      </div>
+    </form>
+
+    <button>Enviar</button>
+
+  </section>
+
+</section>
+<!---------- FOOTER ----------->
+<footer>
+  <p>MortalKombat 2022 - Todos os direitos reservados</p>
+</footer>
+
+<!---------- SCRIPT JS ----------->
+<script src="assets/js/index.js"></script>
+</body>
+</html>
